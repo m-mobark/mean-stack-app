@@ -12,7 +12,7 @@ const TaskRoutes = require('./routes/tasks');
 
 //Connection
 mongoose.Promise = global.Promise; 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI, {useMongoClient:true});
 mongoose.connection.on('connected', () => {
   console.log('Connected to the database');
 });
