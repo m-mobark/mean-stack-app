@@ -10,7 +10,6 @@ router.post('/add', passport.authenticate('jwt', { session : false}),  (req, res
       done: req.body.done,
       owner: req.body.owner
     });
-
     task.save((err, task) => {
       if (err) {
         // throw err;
@@ -19,7 +18,6 @@ router.post('/add', passport.authenticate('jwt', { session : false}),  (req, res
           message: 'try again'
         });
       }
-
       return res.send({
         success: true,
         task,
